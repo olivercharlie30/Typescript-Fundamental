@@ -32,10 +32,43 @@
 
 
 
-let number1 :number;
-number1 = 5;
+// let number1 :number;
+// number1 = 5;
 
-let number2 :number;
-number2 = 10;
+// let number2 :number;
+// number2 = 10;
 
-console.log(number1 + number2);
+// console.log(number1 + number2);
+
+
+
+enum access {ADMIN = 'pass123', MODERATOR = 12345, USER = 111}
+
+const student :{
+    name : string;
+    age : number;
+    gender : string[];
+    habbit : string[];   //array
+    //access : [number, string];   // same any[] 
+    access : access;
+
+} = {
+    name : "oliver",
+    age : 30,
+    gender : ["male", "female"],
+    habbit : ["motorcycle ride", "coding"],
+   // access : [10, "allowed num $ string"]
+   access : access.ADMIN
+}
+
+console.log(student.name);
+console.log(student.gender[0]);
+console.log(student.habbit[0]);
+
+if(student.access === 'pass123')
+    {
+    console.log(`I'M ADMIN`);
+}else{
+    console.log("Sign off");
+}
+

@@ -20,8 +20,31 @@
 // const ShowResult = true;
 // const message = "Compute the number:";
 // console.log(syntaxFunction(Num1, Num2, ShowResult, message));
-var number1;
-number1 = 5;
-var number2;
-number2 = 10;
-console.log(number1 + number2);
+// let number1 :number;
+// number1 = 5;
+// let number2 :number;
+// number2 = 10;
+// console.log(number1 + number2);
+var access;
+(function (access) {
+    access["ADMIN"] = "pass123";
+    access[access["MODERATOR"] = 12345] = "MODERATOR";
+    access[access["USER"] = 111] = "USER";
+})(access || (access = {}));
+var student = {
+    name: "oliver",
+    age: 30,
+    gender: ["male", "female"],
+    habbit: ["motorcycle ride", "coding"],
+    // access : [10, "allowed num $ string"]
+    access: access.ADMIN
+};
+console.log(student.name);
+console.log(student.gender[0]);
+console.log(student.habbit[0]);
+if (student.access === 'pass123') {
+    console.log("I'M ADMIN");
+}
+else {
+    console.log("Sign off");
+}
