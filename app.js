@@ -25,26 +25,43 @@
 // let number2 :number;
 // number2 = 10;
 // console.log(number1 + number2);
-var access;
-(function (access) {
-    access["ADMIN"] = "pass123";
-    access[access["MODERATOR"] = 12345] = "MODERATOR";
-    access[access["USER"] = 111] = "USER";
-})(access || (access = {}));
-var student = {
-    name: "oliver",
-    age: 30,
-    gender: ["male", "female"],
-    habbit: ["motorcycle ride", "coding"],
-    // access : [10, "allowed num $ string"]
-    access: access.ADMIN
-};
-console.log(student.name);
-console.log(student.gender[0]);
-console.log(student.habbit[0]);
-if (student.access === 'pass123') {
-    console.log("I'M ADMIN");
+// enum access {ADMIN = 'pass123', MODERATOR = 12345, USER = 111}
+// const student :{
+//     name : string;
+//     age : number;
+//     gender : string[];
+//     habbit : string[];   //array
+//     //access : [number, string];   // same any[] 
+//     access : access;
+// } = {
+//     name : "oliver",
+//     age : 30,
+//     gender : ["male", "female"],
+//     habbit : ["motorcycle ride", "coding"],
+//    // access : [10, "allowed num $ string"]
+//    access : access.ADMIN
+// }
+// console.log(student.name);
+// console.log(student.gender[0]);
+// console.log(student.habbit[0]);
+// if(student.access === 'pass123')
+//     {
+//     console.log(`I'M ADMIN`);
+// }else{
+//     console.log("Sign off");
+// }
+//UNION TYPES
+function addOrCombines(data1, data2) {
+    var result;
+    if (typeof data1 === "number" && typeof data2 === "number") {
+        result = data1 + data2;
+    }
+    else {
+        result = data1.toString() + data2.toString();
+    }
+    return result;
 }
-else {
-    console.log("Sign off");
-}
+var combineNumbers = addOrCombines(10, 5);
+console.log(combineNumbers);
+var combineString = addOrCombines("oliver", "zachary earl");
+console.log(combineString);
